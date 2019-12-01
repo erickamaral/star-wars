@@ -12,21 +12,18 @@ import {Observable, Subject} from 'rxjs';
 export class CharactersComponent implements OnInit {
   public results: Character[];
   private pageSubject: Subject<number>;
-  private pageObservable: Observable<number>;
 
   constructor(
     private charactersService: CharactersService,
     private route: ActivatedRoute
   ) {
     this.pageSubject = new Subject();
-    this.pageObservable = this.pageSubject.asObservable();
     this.results = [];
   }
 
   public ngOnInit() {
-    this.registerParamSubject();
     this.registerPageSubject();
-    this.pageSubject.next(1);
+    this.registerParamSubject();
   }
 
   private registerParamSubject() {
@@ -38,7 +35,7 @@ export class CharactersComponent implements OnInit {
   }
 
   private registerPageSubject() {
-    this.pageObservable.subscribe(
+    this.pageSubject.subscribe(
       (page: number) => {
         this.loadCharecteres(page);
       }
