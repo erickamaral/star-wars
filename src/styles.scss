@@ -1,0 +1,52 @@
+$primary: #faa507;
+$link-hover-decoration: none;
+$pagination-bg: transparent;
+$pagination-border-color: $primary;
+$pagination-hover-bg: $primary;
+$pagination-hover-border-color: $primary;
+
+@import '~bootstrap/scss/bootstrap';
+
+html, body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+body {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+}
+
+#app {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.navbar {
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .text {
+    text-align: center;
+    font-size: $h2-font-size;
+    font-weight: bold;
+    color: $primary;
+    transform: perspective(300px) rotateX(25deg) translateY(-20px);
+    width: 60vw;
+  }
+}

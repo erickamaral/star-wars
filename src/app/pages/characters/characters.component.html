@@ -1,0 +1,29 @@
+<section class="characters">
+  <header class="header">
+    <h4 class="text-primary">Characters</h4>
+  </header>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-5">
+    <div class="col mb-4" *ngFor="let character of results">
+      <a [routerLink]="['/character', character.id]" class="card bg-primary h-100">
+        <img src="https://starwars-visualguide.com/assets/img/characters/{{ character.id }}.jpg" class="card-img-top" [alt]="character.name">
+        <div class="card-body text-white">
+          <h5 class="card-title m-0">{{ character.name }}</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+  <nav class="my-5">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a [routerLink]="['/characters', 1]" class="page-link">
+          <fa-icon icon="angle-left"></fa-icon>
+        </a>
+      </li>
+      <li class="page-item">
+        <a [routerLink]="['/characters', 2]" class="page-link" href="#">
+          <fa-icon icon="angle-right"></fa-icon>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>

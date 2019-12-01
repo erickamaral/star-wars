@@ -1,0 +1,33 @@
+<section class="characters">
+  <header class="header">
+    <button type="button" title="Voltar" class="btn btn-outline-primary rounded-pill" (click)="back()">
+      Voltar
+    </button>
+  </header>
+  <div class="row justify-content-center mt-5" *ngIf="character">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <img src="https://starwars-visualguide.com/assets/img/characters/{{ character.id }}.jpg" [alt]="character.name" class="img-thumbnail img-fluid bg-primary border-0">
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <h3 class="text-light">{{ character.name }}</h3>
+      <ul class="list-unstyled text-primary">
+        <li><strong class="text-light">Gender:</strong> {{ character.gender }}</li>
+        <li><strong class="text-light">Eye:</strong> {{ character.eyeColor }}</li>
+        <li><strong class="text-light">Hair:</strong> {{ character.hairColor }}</li>
+        <li><strong class="text-light">Skin:</strong> {{ character.skinColor }}</li>
+        <li><strong class="text-light">Height:</strong> {{ character.height }}</li>
+        <li><strong class="text-light">Mass:</strong> {{ character.mass }}</li>
+      </ul>
+      <div *ngIf="homeworld">
+        <h5 class="text-light">Planeta Natal: <span class="text-primary">{{ homeworld.name }}</span></h5>
+        <ul class="list-unstyled text-primary">
+          <li><strong class="text-light">Climate:</strong> {{ homeworld.climate }}</li>
+          <li><strong class="text-light">Diameter:</strong> {{ homeworld.diameter }}</li>
+          <li><strong class="text-light">Gravity:</strong> {{ homeworld.gravity }}</li>
+          <li><strong class="text-light">Population:</strong> {{ homeworld.population }}</li>
+          <li><strong class="text-light">Terrain:</strong> {{ homeworld.terrain }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

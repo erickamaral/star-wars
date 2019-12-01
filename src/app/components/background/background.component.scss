@@ -1,0 +1,91 @@
+/*
+  Este código não é de minha autoria!
+  Usei o mesmo pós além de está em um repositório livre, achei o efeito bastante interessante para o teste.
+  O mesmo não foi produzido por mim devido ao curto tempo tempo e o intuito principal é demonstrar
+  as habilidades em JavaScript e Angular
+  Source: https://codepen.io/saransh/pen/BKJun
+*/
+
+@function multiple-box-shadow($start) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFFFFF';
+
+  @for $i from 2 through $start {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFFFFF';
+  }
+
+  @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);
+
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $shadows-small;
+  animation: animStar 50s linear infinite;
+  z-index: -1;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    z-index: -1;
+  }
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: $shadows-medium;
+  animation: animStar 100s linear infinite;
+  z-index: -1;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    z-index: -1;
+  }
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: $shadows-big;
+  animation: animStar 150s linear infinite;
+  z-index: -1;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    z-index: -1;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-2000px);
+  }
+}
